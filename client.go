@@ -1,5 +1,5 @@
 /*
-Package splunk provides the Splunk Enterprise REST API.
+Package splunk provides the Splunk Enterprise REST API Client.
 More details you can find here: http://dev.splunk.com/restapi
 */
 package splunk
@@ -21,16 +21,12 @@ import (
 )
 
 // A Client is the Splunk REST API client. It keeps credentials and Splunk API endpoints.
-// TODO: Add extra endpoints:
-// /services/server/control
-// /services/server/introspection
-// /services/server/logger
-// /services/server/roles
-// /services/server/settings
-// /services/server/status/dispatch-artifacts
-// /services/server/status/fishbucket
-// /services/server/status/limits
-// /services/server/status/partitions-space
+// TODO(kuba--): Add extra endpoints:
+//		/services/server/control
+//		/services/server/introspection
+//		/services/server/logger
+//		/services/server/roles
+//		/services/server/settings
 type Client struct {
 	httpClient *http.Client
 

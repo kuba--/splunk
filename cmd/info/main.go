@@ -1,12 +1,9 @@
 package main
 
 import (
-	"bufio"
 	"bytes"
 	"context"
 	"encoding/json"
-	"flag"
-	"fmt"
 	"log"
 	"os"
 	"os/signal"
@@ -14,8 +11,6 @@ import (
 
 	"github.com/kuba--/splunk"
 )
-
-var from = flag.String("from", "-5min", "The earliest time for the time range of your search.")
 
 type jsonWriter struct {
 	buf bytes.Buffer
@@ -29,13 +24,6 @@ func (w *jsonWriter) Write(data []byte) (int, error) {
 }
 
 func main() {
-	flag.Usage = func() {
-		fmt.Fprintf(os.Stderr, "usage: %s [options]\n", os.Args[0])
-		flag.PrintDefaults()
-		os.Exit(1)
-	}
-	flag.Parse()
-
 	ctx, cancel := context.WithCancel(context.Background())
 	done := make(chan struct{}, 1)
 	defer func() {
@@ -62,12 +50,7 @@ func main() {
 	}
 
 	w := &jsonWriter{}
-	scanner := bufio.NewScanner(os.Stdin)
-	for scanner.Scan() {
-		if q := scanner.Text(); q != "" {
-			if err := client.Search(ctx, q, *from, w); err != nil {
-				log.Fatalln(err)
-			}
-		}
+	if err := client.Info(ctx, w); err != nil {
+		log.Fatalln(err)
 	}
 }

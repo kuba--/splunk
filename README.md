@@ -10,13 +10,7 @@ The ```splunk``` search tool reads queries from *stdin* (line by line) and print
 
 ### Usage
 ```
-$ go install github.com/kuba--/splunk/cmd/search
-$ search -h
-usage: search [options]
-  -from string
-    	The earliest time for the time range of your search. (default "-5min")
-  -info
-    	The server's info.
+$ go install github.com/kuba--/splunk/cmd/...
 ```
 
 ### Example
@@ -27,7 +21,7 @@ $ export SPLUNK_PASSWORD=pass
 # Splunk API service runs on port :8089
 $ export SPLUNK_URL=https://splunk.acme.com:8089
 
-$ search --info
+$ info
 
 {
 	"links": {},

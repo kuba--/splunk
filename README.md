@@ -11,6 +11,12 @@ The ```splunk``` search tool reads queries from *stdin* (line by line) and print
 ### Usage
 ```
 $ go install github.com/kuba--/splunk/cmd/...
+
+# or 
+
+$ git clone git@github.com:kuba--/splunk.git
+$ cd splunk
+$ vgo install ./cmd/...
 ```
 
 ### Example

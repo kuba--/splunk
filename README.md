@@ -1,7 +1,7 @@
 [![GoDoc](https://godoc.org/github.com/kuba--/splunk?status.svg)](http://godoc.org/github.com/kuba--/splunk)
 [![Go Report Card](https://goreportcard.com/badge/github.com/kuba--/splunk)](https://goreportcard.com/report/github.com/kuba--/splunk)
 [![Build Status](https://travis-ci.org/kuba--/splunk.svg?branch=master)](https://travis-ci.org/kuba--/splunk)
-
+[![Version](https://badge.fury.io/gh/kuba--/splunk.svg)](https://github.com/kuba--/splunk/releases)
 # splunk
 The Splunk Enterprise REST API client
 
@@ -10,13 +10,9 @@ The ```splunk``` search tool reads queries from *stdin* (line by line) and print
 
 ### Usage
 ```
-$ go install github.com/kuba--/splunk/cmd/...
-
-# or 
-
 $ git clone git@github.com:kuba--/splunk.git
 $ cd splunk
-$ vgo install ./cmd/...
+$ go install ./cmd/...
 ```
 
 ### Example
